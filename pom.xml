@@ -23,6 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<orika.version>1.5.2</orika.version>
+		<lombok.version>1.18.0</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -42,6 +43,15 @@
     		<artifactId>orika-core</artifactId>
     		<version>${orika.version}</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>${lombok.version}</version>
+		    <scope>provided</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
