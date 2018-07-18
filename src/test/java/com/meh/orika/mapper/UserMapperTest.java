@@ -29,6 +29,14 @@ public class UserMapperTest {
 		assertThat(user.getMails()).isEqualTo(userDto.getMails());
 	}
 	
+	@Test
+	public void shouldMapUserEntityToUserDto() {
+		User user = mockUserEntity();
+		UserDto userDto = mapper.map(user, UserDto.class);
+		assertThat(user.getUserName()).isEqualTo(userDto.getUserName());
+		assertThat(user.getMails()).isEqualTo(userDto.getMails());
+	}
+	
 	private UserDto mockUserDto() {
 		UserDto userDto = new UserDto();
 		List<String> mails = new ArrayList<String>();
@@ -36,8 +44,18 @@ public class UserMapperTest {
 		mails.add("Santi@gmail.com");
 		mails.add("Alvaro@gmail.com");
 		userDto.setMails(mails);
-		userDto.setUserName("X05927ES");
+		userDto.setUserName("tam");
 		return userDto;
+	}
+	
+	private User mockUserEntity(){
+		User user = new User();
+		List<String> mails = new ArrayList<String>();
+		mails.add("Gary@gmail.com");
+		mails.add("Jorge@gmail.com");
+		user.setMails(mails);
+		user.setUserName("userName");
+		return user;
 	}
     
 	@TestConfiguration
