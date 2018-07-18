@@ -1,5 +1,7 @@
 package com.meh.orika.mapper;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +23,20 @@ public class UserMapperTest {
 	
 	@Test
 	public void shouldMapUserDtoToUserEntity() {
-		User user = mapper.map(mockUserDto(), User.class);
+		UserDto userDto = mockUserDto();
+		User user = mapper.map(userDto, User.class);
+		assertThat(user.getUserName()).isEqualTo(userDto.getUserName());
+		assertThat(user.getMails()).isEqualTo(userDto.getMails());
 	}
 	
 	private UserDto mockUserDto() {
 		UserDto userDto = new UserDto();
 		List<String> mails = new ArrayList<String>();
-		mails.add("mayte@gmail.com");
-		mails.add("santi@gmail.com");
+		mails.add("Mayte@gmail.com");
+		mails.add("Santi@gmail.com");
+		mails.add("Alvaro@gmail.com");
 		userDto.setMails(mails);
+		userDto.setUserName("X05927ES");
 		return userDto;
 	}
     
