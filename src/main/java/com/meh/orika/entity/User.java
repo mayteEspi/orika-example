@@ -1,4 +1,4 @@
-package com.meh.orika.dto;
+package com.meh.orika.entity;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserDto {
-
+public class User {
+	
 	private String userName;
 	private List<String> mails;
 }
