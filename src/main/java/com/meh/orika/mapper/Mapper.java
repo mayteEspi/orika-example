@@ -16,6 +16,7 @@ public class Mapper extends ConfigurableMapper{
 	protected void configure(MapperFactory factory) {
 		ConverterFactory converterFactory = factory.getConverterFactory();
 		converterFactory.registerConverter("dateConverter1", new DateToStringConverter("dd/MM/yyyy"));
+		converterFactory.registerConverter(new StringToIntegerMapper());
 		factory.classMap(Travel.class, TravelDto.class)
 			.field("origin", "from")
 			.field("destiny", "to")
