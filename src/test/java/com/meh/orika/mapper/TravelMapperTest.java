@@ -32,6 +32,18 @@ public class TravelMapperTest {
 		assertThat(travel.getHistoryPoints().contains(travelDto.getTravelHistoryPoints().get(0).getLocation()));
 	}
 	
+	@Test
+	public void shouldMapTravelDtoToTravelWithNullHistoryPoints() {
+		TravelDto travelDto = mockTravelDto();
+		travelDto.setTravelHistoryPoints(null);
+		Travel travel = mapper.map(travelDto, Travel.class);
+		assertThat(travelDto.getFrom()).isEqualTo(travel.getOrigin());
+		assertThat(travelDto.getTo()).isEqualTo(travel.getDestiny());
+		assertNotNull(travel.getTravelDate());
+		assertThat(travel.getHistoryPoints()).isNull();
+	}
+	
+	
 	private TravelDto mockTravelDto() {
 		TravelDto travelDto = new TravelDto();
 		travelDto.setFrom("Madrid");
